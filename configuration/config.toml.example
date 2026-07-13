@@ -1,0 +1,35 @@
+model = "gpt-5.4"
+model_context_window = 400000
+
+project_root_markers = []
+default_permissions = "workspace-only"
+
+[permissions.workspace-only]
+extends = ":workspace"
+
+[permissions.workspace-only.filesystem]
+":root" = "deny"
+":minimal" = "read"
+":tmpdir" = "deny"
+":slash_tmp" = "deny"
+
+[permissions.workspace-only.network]
+enabled = false
+
+[mcp_servers.ttool]
+command = "/usr/bin/java"
+args = ["-jar", "/replace/this/with/your/path/to/TTool/bin/ttool-cli.jar", "-mcpcodex"]
+cwd = "replace/this/with/your/path/to/TTool"
+
+[mcp_servers.ttool_suggestion]
+command = "/usr/bin/java"
+args = ["-jar", "replace/this/with/your/path/to/TTool/bin/ttool-cli.jar", "-mcpcodex-suggestion"]
+cwd = "replace/this/with/your/path/to/TTool"
+
+[mcp_servers.ttool_mutation]
+command = "/usr/bin/java"
+args = ["-jar", "replace/this/with/your/path/to/TTool/bin/ttool-cli.jar", "-mcpcodex-mutation"]
+cwd = "replace/this/with/your/path/to/TTool"
+
+[tui.model_availability_nux]
+"gpt-5.6-sol" = 3
