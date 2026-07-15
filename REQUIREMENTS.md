@@ -36,24 +36,20 @@ To install TTool from the public GitLab repository, the following tools must be 
 * `javac` 11 or later,
 * `java` 11 or later.
 
-## Software Requirements for Re-running the TTool-based implementation of γμS
+## Software Requirements for re-running the TTool-based implementation of γμS
 
 Re-running the TTool-based implementation of γμS requires the AI-assisted modeling features of TTool. In addition to the TTool installation requirements listed above, one needs:
 
 * access to an LLM backend supported by TTool,
-* the corresponding API key or authentication mechanism,
+* the corresponding API key, or a ChatGPT account if using Codex as in the runs reported in the paper,
 * a configured TTool AI setup,
-* a configured MCP setup if using Codex as in our experiments.
+* a configured MCP setup if using Codex.
 
-Our experiments used OpenAI Codex through TTool's AI/MCP support.
-
-TTool-AI can also be configured with other AI providers or with a self-hosted backend compatible with the OpenAI-style JSON interface.
+TTool can also be configured with other AI providers or with a self-hosted backend compatible with the OpenAI-style JSON interface.
 
 ## OpenAI / Codex Requirements
 
-To reproduce the γμS execution setup used in the paper, one should configure Codex in TTool.
-
-This requires:
+To reproduce the γμS execution setup used in the paper, one should configure Codex in TTool. This requires:
 
 * installing the Codex command-line interface,
 * logging into the relevant OpenAI or ChatGPT account from the command line (no API key is needed, but a ChatGPT account is needed),

@@ -1,11 +1,8 @@
 # Welcome to the γμS Companion Material!
 
-This repository contains the companion material used to evaluate the TTool-based implementation of **γμS**, reported in the camera-ready version of the paper accepted at **MODELS 2026**.
+This repository contains the material used to evaluate the TTool-based implementation of **γμS**, as reported in the camera-ready version of the paper accepted at **MODELS 2026**. It contains the models, specifications, prompts, and detailed evaluation results used in the paper, as well as a snapshot of TTool's source code including γμS implementation. The reported results can be inspected directly from the archived files, without re-running the LLM-based workflow, just by opening the `.xml` files in TTool.
 
-The artifact contains the models, specifications, prompts, and detailed evaluation results used in the paper. The reported results can be inspected directly from the archived files, without re-running the LLM-based workflow, just by opening the `.xml` files in TTool.
-
-## Public Archive
-
+## Persistent Archive
 * The artifact is publicly archived on Zenodo: https://doi.org/10.5281/zenodo.20848789
 * The Zenodo record includes a source snapshot of the exact TTool version used for the corrected evaluation.
 * The source code of the latest version of TTool is publicly available from Télécom Paris' GitLab: https://gitlab.telecom-paris.fr/mbe-tools/TTool
@@ -13,14 +10,13 @@ The artifact contains the models, specifications, prompts, and detailed evaluati
 ## Repository Contents
 
 ### `./models/`
-
-This directory contains the base variants of the two case studies and the 35 run-specific results. When an executable suggestion was applicable, the corresponding tab contains the model obtained after applying it; otherwise, it preserves the available output of the run for inspection.
+This directory contains the base variants of the two case studies and the results of the 35 runs. When the run resulted in an applicable executable suggestion, the corresponding tab contains the model obtained after applying it. Otherwise, the tab contains the initial model with the textual suggestion produced by the run.
 
 #### Oceanographic Buoy
 
 ##### `oceanographicBuoy_incompleteVariant.xml`
 
-[This file](./models/oceanographicBuoy_incompleteVariant.xml) contains the base models and 10 run-specific results relative to the oceanographic buoy case-study, incomplete variants. When opened in TTool, it contains the following tabs:
+[This file](./models/oceanographicBuoy_incompleteVariant.xml) contains the base models and the models deriving from the 10 runs relative to the oceanographic buoy case-study, incomplete variants. When opened in TTool, it contains the following tabs:
 
 * **`FullDesign`**: the initial complete design model, including one block diagram and 8 state machines.
 * **`IncompleteDesign`**: the first variant, in which the `Barometer` block is missing.
@@ -36,7 +32,7 @@ This directory contains the base variants of the two case studies and the 35 run
 
 ##### `oceanographicBuoy_overspecifiedVariant.xml`
 
-[This file](./models/oceanographicBuoy_overspecifiedVariant.xml) contains the base models and 10 run-specific results relative to the oceanographic buoy case-study, overspecified variants. When opened in TTool, it contains the following tabs:
+[This file](./models/oceanographicBuoy_overspecifiedVariant.xml) contains the base models and the models deriving from the 10 runs relative to the oceanographic buoy case-study, overspecified variants. When opened in TTool, it contains the following tabs:
 
 * **`FullDesign`**: the initial complete design model, including one block diagram and 8 state machines.
 * **`OverspecifiedDesign`**: the second variant, in which a `SatelliteTransmitter` block has been added, together with a connection between this block and `Controller`, and a corresponding signal in the block `Controller`.
@@ -54,7 +50,7 @@ This directory contains the base variants of the two case studies and the 35 run
 
 ##### `coffeeMachine_incompleteAndtimingVariants.xml`
 
-[This file](./models/coffeeMachine_incompleteAndtimingVariants.xml) contains the base models and 10 run-specific results relative to the coffee machine case-study, for the incomplete variant and the variant with timing errors. When opened in TTool, it contains the following tabs:
+[This file](./models/coffeeMachine_incompleteAndtimingVariants.xml) contains the base models and the models deriving from the 10 runs relative to the coffee machine case-study, for the incomplete variant and the variant with timing errors. When opened in TTool, it contains the following tabs:
 
 * **`AVATAR Requirements`**: a requirement diagram. It is not required for γμS.
 * **`FullDesign`**: the initial complete design model, including one block diagram and 4 state machines.
@@ -71,7 +67,7 @@ This directory contains the base variants of the two case studies and the 35 run
 
 ##### `coffeeMachine_overspecifiedVariant.xml`
 
-[This file](./models/coffeeMachine_overspecifiedVariant.xml) contains the base models and 5 run-specific results relative to the coffee machine case-study, for the overspecified variant. When opened in TTool, it contains the following tabs:
+[This file](./models/coffeeMachine_overspecifiedVariant.xml) contains the base models and the models deriving from the 5 runs relative to the coffee machine case-study, for the overspecified variant. When opened in TTool, it contains the following tabs:
 
 * **`AVATAR Requirements`**: a requirement diagram. It is not required for γμS.
 * **`FullDesign`**: the third variant, which includes an additional `CappuccinoButton` block connected to the `CoffeeMachine` block.
@@ -98,7 +94,7 @@ This directory contains the base variants of the two case studies and the 35 run
 
 ### `./superseded/`
 
-[This directory](./superseded) contains [the models](./superseded/models) and [the evaluation scores](./superseded/evaluationResults) of a first evaluation of the SysML implementation of γμS. These results were obtained with an implementation affected by a bug in one of the MCP tools and contain a manual scoring error identified a posteriori. It is kept only for transparency and traceability: the data it contains are **superseded** and must not be used to reproduce the quantitative results reported in the camera-ready paper.
+[This directory](./superseded) contains [the models](./superseded/models) and [the evaluation scores](./superseded/evaluationResults) of a first evaluation of the SysML implementation of γμS. These results were obtained with an implementation affected by a bug in one of the MCP tools and contain a manual scoring error identified a posteriori. It is kept only for transparency and traceability: the data it contains are superseded and **do not correspond to the quantitative results reported in the camera-ready paper**.
 
 [This file](./superseded/README.md) gives more details about this initial evaluation.
 
@@ -107,10 +103,10 @@ This directory contains the base variants of the two case studies and the 35 run
 ## Inspecting the Reported Results
 
 The results reported in the paper can be inspected without re-running the SysML implementation of γμS. You just need to:
-1. Open the relevant `.xml` model file in TTool.
+1. Open the relevant `.xml` model file in TTool (to install TTool, see the instructions below).
 2. Navigate to the tab corresponding to the run of interest.
 3. Inspect the computed suggestion, the modified model, the score assigned by LLM#3, and our scoring and evaluation.
-4. Compare these results with the detailed table provided in `./evaluationResults/`.
+4. These results are synthesized in the detailed table provided in `./evaluationResults/`.
 
 
 
@@ -122,7 +118,7 @@ The evaluation was conducted with:
 
 - TTool version: 5.0 alpha
 - Build: 14889
-- Git commit: cf4760ec80a029fc4aee1314213cfb43e7461a7e (For artifact reproduction, we provide revision 29d32f99a9fbe617cd72f838436b5246d03b371c, which differs only in that Codex sandbox and approval policies are now delegated to the selected config.toml profile).
+- Git commit: cf4760ec80a029fc4aee1314213cfb43e7461a7e (For artifact reproduction, we provide revision 29d32f99a9fbe617cd72f838436b5246d03b371c, which differs only in that Codex sandbox/permission policies are now defined in the selected config.toml profile, and no longer hard-coded in the implementation).
 
 ### Installing TTool
 
@@ -145,7 +141,7 @@ make ttool-cli && make ttoolnotest
 
 ### Configuring Codex and the MCP server
 
-A complete sanitized version of the configuration used for the evaluation is provided in [`configuration/`](./configuration/).
+Sanitized versions of the configuration files used for the evaluation are provided in [`configuration/`](./configuration/).
 
 1. Copy [`config.xml.example`](./configuration/config.xml.example) to `TTool/bin/config.xml`.
 2. Replace the codex binary placeholder path with the path of your local installation.
@@ -177,9 +173,7 @@ After execution, the modified model is opened in a new tab.
 
 ### Note on LLM-Based Reproduction
 
-Re-running this TTool-based implementation of γμS requires access to the configured LLM backend, in particular OpenAI Codex in our setup. Since the workflow relies on LLM calls, newly generated suggestions may differ from the archived ones.
-
-The archived models and evaluation results correspond to the runs reported in the paper and should be used as the reference material for artifact evaluation.
+Since the workflow relies on LLM calls, newly generated suggestions may differ from the archived ones. The archived models and evaluation results correspond to the runs reported in the paper.
 
 ## Current implementation limitation
 
